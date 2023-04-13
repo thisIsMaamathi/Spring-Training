@@ -12,38 +12,17 @@ import com.model.TransactionService;
 @ComponentScan(basePackages = {"com"})
 
 public class Ex01TransactionApplication {
+	/**
+	 The Ex01TransactionApplication class is the entry point of the Spring Boot application.
+The main method is used to run the Spring Boot application and returns a ConfigurableApplicationContext.
+The moneyTransfer method of the TransactionService class is called with three arguments: source account id, destination account id, and the amount to be transferred..
+	 */
 	
 	public static void main(String[] args) throws Exception {
-		ConfigurableApplicationContext cac =  SpringApplication.run(Ex01TransactionApplication.class, args);
+       ConfigurableApplicationContext configurableApplicationContext =  SpringApplication.run(Ex01TransactionApplication.class, args);
 		
-//		MyService myService = cac.getBean("myService", MyService.class);
-//		myService.doService(100, 20000);
-		
-		TransactionService transactionService = cac.getBean("tss", TransactionService.class);
-		transactionService.moneyTransfer(100,1010,100);
+		TransactionService transactionService = configurableApplicationContext.getBean("tss", TransactionService.class);
+		transactionService.moneyTransfer(100, 1010,-2);
 	}
 }
 
-//public class SpringTransactioinApplication {
-//	@Autowired
-//	MyService myService;
-//	public static void main(String[] args) throws Exception {
-//		ConfigurableApplicationContext cac =  SpringApplication.run(SpringTransactioinApplication.class, args);
-//		
-////		MyService myService = cac.getBean("myService", MyService.class);
-//
-//		SpringTransactioinApplication sta = new SpringTransactioinApplication();
-//		sta.doFun();
-//		
-//	}
-//	
-//	void doFun() {
-//		if (myService == null) {
-//			System.out.println("Object is null");
-//			return;
-//		}
-//		
-//		myService.doService(100, 20000);
-//	}
-//
-//}
